@@ -1,17 +1,40 @@
-import React from 'react';
+import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import News from './components/news';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+class App  extends Component {
+    state = {
+        data:[
+            {
+                title: "python",
+                content:"python is programming language ...."
+            },
+            {
+                title: "php",
+                content:"php is programming language ...."
+            },
+            {
+                title: "java",
+                content:"java is programming language ...."
+            },
+            
+            {
+                title: "ruby",
+                content:"ruby is programming language ...."
+            }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+        ]
+    }
+render() {
+    return (
+        <div>
+            {/* {this.state.data} */}
+
+            <News data = {this.state.data}/>
+        </div>
+    )
+}
+
+}
+
+ReactDOM.render(<App/>,document.querySelector('#root'));
